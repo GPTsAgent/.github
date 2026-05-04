@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GPT Builder setup notes
+    url: https://github.com/GPTsAgent/.github/blob/main/docs/GITHUB-REPOSITORY-SETUP.md
+    about: Use this when publishing or wiring the organization profile.
+  - name: Security and secret handling
+    url: https://github.com/GPTsAgent/.github/blob/main/.github/SECURITY.md
+    about: Read before reporting secret-sensitive behavior. Do not post real secrets.

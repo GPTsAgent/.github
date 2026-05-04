@@ -1,0 +1,43 @@
+name: Validate organization profile
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Profile repository hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f profile/README.md
+          test -f README.md
+          test -f SECURITY.md
+          test -f CONTRIBUTING.md
+          test -f SUPPORT.md
+          test -f CODE_OF_CONDUCT.md
+
+      - name: Check ignored local files are absent
+        run: |
+          test ! -f .env
+          test -z "$(find . -type d -name '__pycache__' -print -quit)"
+
+      - name: Check profile language
+        run: |
+          grep -q "GPTsAgent" profile/README.md
+          grep -q "Sandbox File Operator" profile/README.md
+          grep -q "NOT VERIFIED" profile/README.md
