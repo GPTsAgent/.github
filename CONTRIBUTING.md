@@ -4,7 +4,8 @@ GPTsAgent contributions should improve the Sandbox File Operator package without
 
 ## Ground Rules
 
-- Keep the root Knowledge set at exactly 20 Markdown files unless the manifest and validator are deliberately changed.
+- Open project changes against `GPTsAgent/GPTsAgent`; keep this repository focused on the organization profile and community health files.
+- Keep `config/` in `GPTsAgent/GPTsAgent` at exactly 20 Markdown Knowledge files unless the manifest and validator are deliberately changed.
 - Do not add real secrets, tokens, private keys, cookies, sessions, or credential bodies.
 - Keep local-machine, production, CI, cloud, and host claims honest. Use `NOT VERIFIED` when evidence is missing.
 - Prefer bounded changes over broad rewrites.
@@ -22,8 +23,8 @@ GPTsAgent contributions should improve the Sandbox File Operator package without
 Run:
 
 ```bash
-python3 _codex-session/validate_v4_package.py
-python3 -m py_compile scripts/github_access.py _codex-session/validate_v4_package.py
+cd GPTsAgent
+python3 scripts/validate_workspace.py
 ```
 
 If network access is unavailable, label GitHub/API checks as `NOT RUN` or `TIMEOUT`.

@@ -2,7 +2,7 @@
 
 ## Supported Scope
 
-This repository contains GPT Builder configuration, safety policy, workflow templates, and local helper scripts. It does not operate production infrastructure and does not provide a remote execution backend.
+This organization profile repository contains public profile text, community health files, issue templates, and profile validation workflow configuration. The full working project lives in `GPTsAgent/GPTsAgent`. GPTsAgent does not operate production infrastructure and does not provide a remote execution backend.
 
 ## Reportable Issues
 

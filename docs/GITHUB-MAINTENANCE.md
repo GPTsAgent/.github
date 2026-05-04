@@ -1,20 +1,38 @@
 # GitHub Maintenance
 
-## Release Readiness
+GPTsAgent uses two public repositories:
 
-Before publishing a release:
+- `GPTsAgent/.github`: organization profile and community health defaults.
+- `GPTsAgent/GPTsAgent`: full working directory and contribution target.
 
-1. Run `_codex-session/validate_v4_package.py`.
-2. Confirm exactly 20 root Markdown files.
-3. Confirm the Instructions block in `GPT-BUILDER-CONFIG.md` is current.
-4. Run GPT Builder Preview tests from `EVALUATION-CHECKLIST.md`.
-5. Confirm artifact ZIPs open and match root files.
-6. Confirm no secret-like material was introduced.
-7. Mark any host, CI, cloud, local-machine, or production claim as `NOT VERIFIED` unless actually tested.
+## Profile Repository Checks
 
-## Label Set
+Before changing this repository:
 
-Recommended labels:
+1. Confirm `profile/README.md` still describes GPTsAgent clearly.
+2. Confirm links point to `GPTsAgent/GPTsAgent`.
+3. Confirm community health files do not ask users to post secrets.
+4. Confirm the profile validation workflow passes.
+
+## Development Repository Checks
+
+Before accepting project changes in `GPTsAgent/GPTsAgent`:
+
+```bash
+python3 scripts/validate_workspace.py
+python3 scripts/build_release_zip.py
+```
+
+Expected result:
+
+- workspace validation returns `Status: PASS`;
+- `config/` has exactly 20 Markdown Knowledge files;
+- `instructions/SYSTEM-INSTRUCTIONS.txt` matches `config/GPT-BUILDER-CONFIG.md`;
+- no obvious secret-like material was introduced.
+
+## Labels
+
+Recommended labels for `GPTsAgent/GPTsAgent`:
 
 - `package`
 - `documentation`
@@ -31,9 +49,9 @@ Recommended labels:
 
 Use `main` as the release branch.
 
-Recommended protections after the remote repository exists:
+Recommended protections:
 
-- Require the `Validate GPTsAgent package` workflow.
+- Require the `Validate GPTsAgent workspace` workflow.
 - Require pull request review before merge.
 - Dismiss stale approvals when new commits are pushed.
 - Restrict force pushes.
@@ -43,5 +61,5 @@ Recommended protections after the remote repository exists:
 
 - Keep `.env` local and ignored.
 - Rotate any token that appears in terminal logs, issues, pull requests, commits, or screenshots.
-- Do not add root Markdown files casually; the package is designed around the GPT Builder Knowledge limit.
+- Keep user contributions flowing through `GPTsAgent/GPTsAgent` pull requests.
 - Treat generated ZIPs as release artifacts, not as replacements for source files.

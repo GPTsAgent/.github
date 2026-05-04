@@ -1,6 +1,6 @@
 # Support
 
-Use GitHub Issues for:
+Use `GPTsAgent/GPTsAgent` GitHub Issues for:
 
 - GPT Builder setup questions.
 - Sandbox File Operator package defects.

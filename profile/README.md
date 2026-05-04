@@ -38,14 +38,19 @@ It turns a normal Custom GPT into a structured file operator for ChatGPT.com:
 
 ChatGPT can be made more agent-like inside the web interface when the workflow is explicit: inspect, constrain, patch, validate, and return artifacts. GPTsAgent is about that operating layer.
 
-## Repository Layout
+## Repositories
 
-The public package is organized around exactly 20 root Markdown files for GPT Builder Knowledge. Behavior-critical instructions live in `GPT-BUILDER-CONFIG.md`; supporting policy, examples, evaluation, artifact contracts, and publishing guidance live beside it.
+The public project is intentionally simple:
 
-For the organization profile, this file belongs at:
+- `GPTsAgent/GPTsAgent`: the full working repository for cloning, downloading, development, issues, and pull requests.
+- `GPTsAgent/.github`: this organization profile and community health repository.
+
+Inside `GPTsAgent/GPTsAgent`, the `config/` directory contains the exact 20 Markdown Knowledge files and `instructions/` contains the system Instructions block.
+
+Download the full working directory:
 
 ```text
-GPTsAgent/.github/profile/README.md
+https://github.com/GPTsAgent/GPTsAgent/archive/refs/heads/main.zip
 ```
 
 ## Safety Defaults
